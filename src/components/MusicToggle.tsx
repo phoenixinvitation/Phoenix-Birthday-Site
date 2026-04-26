@@ -1,53 +1,36 @@
 import { useEffect, useRef, useState } from "react";
 import { Music, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
+import songUrl from "@/assets/song.mp3";
 
 export function MusicToggle() {
   const [playing, setPlaying] = useState(false);
-  const ctxRef = useRef<AudioContext | null>(null);
-  const nodesRef = useRef<{ osc: OscillatorNode; gain: GainNode }[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => () => stop(), []);
+  useEffect(() => {
+    const audio = new Audio(songUrl);
+    audio.loop = true;
+    audio.volume = 0.5;
+    audioRef.current = audio;
 
-  function stop() {
-    nodesRef.current.forEach(({ osc }) => {
-      try {
-        osc.stop();
-      } catch {
-        /* noop */
-      }
-    });
-    nodesRef.current = [];
-    if (ctxRef.current) {
-      ctxRef.current.close().catch(() => {});
-      ctxRef.current = null;
-    }
-  }
+    return () => {
+      audio.pause();
+      audio.src = "";
+      audioRef.current = null;
+    };
+  }, []);
 
   function toggle() {
+    const audio = audioRef.current;
+    if (!audio) return;
+
     if (playing) {
-      stop();
+      audio.pause();
       setPlaying(false);
-      return;
+    } else {
+      audio.play().catch(() => { });
+      setPlaying(true);
     }
-    const Ctx =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new Ctx();
-    ctxRef.current = ctx;
-    // gentle twinkly chord
-    const notes = [523.25, 659.25, 783.99]; // C E G
-    notes.forEach((freq) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.value = freq;
-      gain.gain.value = 0.04;
-      osc.connect(gain).connect(ctx.destination);
-      osc.start();
-      nodesRef.current.push({ osc, gain });
-    });
-    setPlaying(true);
   }
 
   return (
