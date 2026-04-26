@@ -30,17 +30,37 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lovable App" },
-      { name: "description", content: "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme." },
+      {
+        name: "description",
+        content:
+          "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme." },
+      {
+        property: "og:description",
+        content:
+          "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b421c0d9-34a3-4b83-b8b8-3aafd2b75fa8/id-preview-2496bd9a--de46f937-5e89-4340-8c89-e19a04b94130.lovable.app-1776931085982.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b421c0d9-34a3-4b83-b8b8-3aafd2b75fa8/id-preview-2496bd9a--de46f937-5e89-4340-8c89-e19a04b94130.lovable.app-1776931085982.png" },
+      {
+        name: "twitter:description",
+        content:
+          "A premium, modern birthday invitation website template with a fun, luxurious cartoon theme.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b421c0d9-34a3-4b83-b8b8-3aafd2b75fa8/id-preview-2496bd9a--de46f937-5e89-4340-8c89-e19a04b94130.lovable.app-1776931085982.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b421c0d9-34a3-4b83-b8b8-3aafd2b75fa8/id-preview-2496bd9a--de46f937-5e89-4340-8c89-e19a04b94130.lovable.app-1776931085982.png",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

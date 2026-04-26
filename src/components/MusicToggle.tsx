@@ -11,7 +11,11 @@ export function MusicToggle() {
 
   function stop() {
     nodesRef.current.forEach(({ osc }) => {
-      try { osc.stop(); } catch { /* noop */ }
+      try {
+        osc.stop();
+      } catch {
+        /* noop */
+      }
     });
     nodesRef.current = [];
     if (ctxRef.current) {
@@ -26,7 +30,9 @@ export function MusicToggle() {
       setPlaying(false);
       return;
     }
-    const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    const Ctx =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     const ctx = new Ctx();
     ctxRef.current = ctx;
     // gentle twinkly chord

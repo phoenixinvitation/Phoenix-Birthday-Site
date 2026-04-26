@@ -196,9 +196,7 @@ export function Blessings() {
                             {b.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-foreground">
-                              {b.name}
-                            </div>
+                            <div className="text-sm font-bold text-foreground">{b.name}</div>
                           </div>
                         </div>
                         <button
@@ -217,7 +215,8 @@ export function Blessings() {
           </div>
 
           <p className="mt-8 text-center text-xs text-muted-foreground">
-            💡 Blessings are saved on this device only. To collect wishes from everyone across all devices, ask to enable shared cloud storage.
+            💡 Blessings are saved on this device only. To collect wishes from everyone across all
+            devices, ask to enable shared cloud storage.
           </p>
         </div>
       </div>

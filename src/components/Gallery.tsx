@@ -26,7 +26,9 @@ export function Gallery() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
               className={`group relative overflow-hidden rounded-3xl shadow-card ${
-                i === 0 ? "md:row-span-2 md:col-span-1 aspect-square md:aspect-[3/4]" : "aspect-square"
+                i === 0
+                  ? "md:row-span-2 md:col-span-1 aspect-square md:aspect-[3/4]"
+                  : "aspect-square"
               }`}
             >
               <img
